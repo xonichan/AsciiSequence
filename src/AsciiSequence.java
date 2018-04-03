@@ -22,17 +22,17 @@ public class AsciiSequence {
         }
 
         @Override
-        public CharSequence subSequence(int start, int end) {
-            CharSequence tmpCS;
-            tmpCS = (CharSequence)byteArray[].toString();
-            return null;
+        public AsciiCharSequence subSequence(int start, int end) {
+            String tmpStr = new String(byteArray);
+            String tmpStr2 = tmpStr.substring(start, end);
+            AsciiCharSequence tmpACS = new AsciiCharSequence(tmpStr2.getBytes());
+            return tmpACS;
         }
 
         @Override
         public String toString() {
-            return "AsciiCharSequence{" +
-                    "byteArray=" + Arrays.toString(byteArray) +
-                    '}';
+            String tmpStr = new String(byteArray);
+            return tmpStr;
         }
     }
 
@@ -46,6 +46,8 @@ public class AsciiSequence {
             AsciiCharSequence test_seq = new AsciiCharSequence(tmpByteArray);
             System.out.println(test_seq.length());
             System.out.println(test_seq.charAt(3));
+            System.out.println(test_seq.subSequence(2,5));
+            System.out.println(test_seq.toString());
 
         }
     }
