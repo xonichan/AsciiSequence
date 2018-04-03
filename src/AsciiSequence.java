@@ -1,23 +1,19 @@
 import java.util.Arrays;
 
+import static java.lang.String.*;
+
 public class AsciiSequence {
 
-    public class AsciiCharSequence implements CharSequence {
+    public static class AsciiCharSequence implements CharSequence {
         byte[] byteArray;
 
         public AsciiCharSequence(byte[] byteArrayInputStream) {
-            byteArrayInputStream = this.byteArray;
+            this.byteArray =  byteArrayInputStream;
         }
 
-        /**
-         * Returns the length of this character sequence.  The length is the number
-         * of 16-bit {@code char}s in the sequence.
-         *
-         * @return the number of {@code char}s in this sequence
-         */
         @Override
         public int length() {
-            return 0;
+            return byteArray.length;
         }
 
         /**
@@ -71,8 +67,12 @@ public class AsciiSequence {
     public static class AsciiSequencerun{
         public  void run(String[] args){
             String init_str= "Test string";
-            AsciiCharSequence test_seq = new AsciiCharSequence(String.getBytes(init_str));
-
+            System.out.println(init_str);
+            byte[] tmpByteArray;
+            tmpByteArray = init_str.getBytes();
+            System.out.println(tmpByteArray.length);
+            AsciiCharSequence test_seq = new AsciiCharSequence(tmpByteArray);
+            System.out.println(test_seq.length());
         }
     }
 
